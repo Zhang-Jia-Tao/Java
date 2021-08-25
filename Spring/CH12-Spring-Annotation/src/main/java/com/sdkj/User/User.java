@@ -27,6 +27,11 @@ public class User {
         this.age = age;
     }
 
+    public int Count(){
+        this.age++;
+        return age;
+    }
+
 
     @Override
     public String toString() {
