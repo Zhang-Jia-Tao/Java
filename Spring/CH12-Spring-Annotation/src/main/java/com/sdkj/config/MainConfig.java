@@ -1,5 +1,6 @@
 package com.sdkj.config;
 
+import com.sdkj.User.Student;
 import com.sdkj.User.User;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
@@ -28,6 +29,11 @@ public class MainConfig{
     @Bean(name="user02")
     public User beanname(){
         return new User("zhangjiatao",10);
+    }
+
+    @Bean(name="stu")
+    public Student student(){
+        return new Student();
     }
 
 }

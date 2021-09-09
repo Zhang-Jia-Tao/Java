@@ -16,6 +16,7 @@ public class MainConfig02 {
     *                       每次获取的时候才会调用方法创建对象
     *   singleton：单实例的(默认)   ioc容器启动时会调用方法创建对象放在容器中
     *                            以后每次获取就是直接从容器中取
+    *
     * */
     @Scope(value="prototype")
     @Bean

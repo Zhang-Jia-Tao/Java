@@ -9,7 +9,7 @@ import org.springframework.context.annotation.Configuration;
 * bean的生命周期：
 *   bean的创建----bean的初始化-----bean的销毁
 *
-* bean的创建：
+* bean的创建
 *   单实例：在IOC容器启动时创建bean
 *   多实例：在每次获取bean时创建
 *

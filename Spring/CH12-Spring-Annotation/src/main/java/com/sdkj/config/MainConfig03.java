@@ -26,6 +26,7 @@ public class MainConfig03 {
     *   则再次进行条件的判断 为真 注册到容器，为false 依旧不注册到容器之中
     *   若在类上面直接判断为false，则类中所有均不会注册到容器之中
     * */
+
     @Conditional({WindowCondition.class})
     @Bean
     public User Linghuchong(){
