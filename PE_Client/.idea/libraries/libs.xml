@@ -1,0 +1,26 @@
+<component name="libraryTable">
+  <library name="libs">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/PE/libs/httpclient-4.5.5.jar!/" />
+      <root url="jar://$PROJECT_DIR$/PE/libs/httpcore-4.4.9.jar!/" />
+      <root url="jar://$PROJECT_DIR$/PE/libs/._httpcore-4.4.9.jar!/" />
+      <root url="jar://$PROJECT_DIR$/PE/libs/._jackson-core-2.9.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/PE/libs/commons-codec-1.10.jar!/" />
+      <root url="jar://$PROJECT_DIR$/PE/libs/commons-logging-1.2.jar!/" />
+      <root url="jar://$PROJECT_DIR$/PE/libs/commons-beanutils-1.8.3.jar!/" />
+      <root url="jar://$PROJECT_DIR$/PE/libs/._commons-beanutils-1.8.3.jar!/" />
+      <root url="jar://$PROJECT_DIR$/PE/libs/jackson-databind-2.9.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/PE/libs/jackson-annotations-2.9.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/PE/libs/._jackson-databind-2.9.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/PE/libs/._commons-logging-1.2.jar!/" />
+      <root url="jar://$PROJECT_DIR$/PE/libs/._jackson-annotations-2.9.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/PE/libs/jackson-core-2.9.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/PE/libs/._commons-codec-1.10.jar!/" />
+      <root url="jar://$PROJECT_DIR$/PE/libs/._httpclient-4.5.5.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.ideaLibSources/httpclient-4.5.5-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>
