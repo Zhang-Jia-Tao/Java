@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sdkj.boot.mapper.ExamMapper">
+    <select id="QueryExam" resultType="Exam">
+        select * from Exam where ExamType = #{type}
+    </select>
+
+    <!--管理员所用到的语句-->
+    <select id="Search" resultType="Exam">
+        select * from Exam
+    </select>
+
+    <!--根据id，进行查询-->
+    <select id="SelectById" resultType="Exam">
+        select * from Exam where ExamId = #{id}
+    </select>
+
+    <!--根据id，进行更新-->
+    <update id="UpdateById">
+        update Exam set ExamType=#{type},Stem=#{stem},OptionA=#{optionA},OptionB=#{optionB},OptionC=#{optionC}
+    ,OptionD=#{optionD},Answer=#{answer},CorrectRate=#{rate},NumerOfRes=#{num} where ExamId=#{id}
+    </update>
+
+    <!--随机获取试题-->
+    <select id="RandomSelect" resultType="Exam">
+        select * from exam where examtype=#{type} order by rand() limit 0,50;
+    </select>
+
+</mapper>

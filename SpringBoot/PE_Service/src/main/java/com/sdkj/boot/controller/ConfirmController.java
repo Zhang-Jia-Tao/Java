@@ -1,0 +1,108 @@
+package com.sdkj.boot.controller;
+
+import com.sdkj.boot.domain.Admin;
+import com.sdkj.boot.domain.Confirm;
+import com.sdkj.boot.domain.ResultInfo;
+import com.sdkj.boot.domain.User;
+import com.sdkj.boot.service.AdminService;
+import com.sdkj.boot.service.ConfirmService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
+
+import javax.servlet.http.HttpSession;
+import java.util.List;
+
+@RestController
+@RequestMapping("/confirm")
+public class ConfirmController {
+
+    @Autowired
+    ConfirmService confirmService;
+
+    //发送方发送添加好友的请求
+    @RequestMapping(value = "/add")
+    public ResultInfo AddConfirm(HttpSession session,@RequestParam("Receive_id")String Receive_id){
+        User user = (User) session.getAttribute("user");
+        String Send_id =  user.getUserId()+"";
+        int res = confirmService.AddConfirm(Send_id, Receive_id);
+        if(res == 1){
+            return new ResultInfo(true,null,"好友申请崇高");
+        } else {
+            return new ResultInfo(false, null, "false");
+        }
+    }
+
+
+    @RequestMapping(value = "/query")
+    public ResultInfo QueryConfirm(HttpSession session,@RequestParam("Receive_id")String Receive_id){
+        User user = (User) session.getAttribute("user");
+        String Send_id = user.getUserId()+"";
+        int res = confirmService.QueryConfirm(Send_id,Receive_id);
+        if(res>2){
+            return new ResultInfo(false,null,"不能再次添加了");
+        } else {
+            return new ResultInfo(true,null,"ok");
+        }
+    }
+
+
+    //返回的数据是用户作为接受申请的人
+    @RequestMapping(value = "compare")
+    public ResultInfo compareuser(HttpSession session){
+        User user = (User) session.getAttribute("user");
+        String userid = user.getUserId()+"";
+        List<Confirm> confirmList = confirmService.compareuser(userid);
+        if(confirmList.isEmpty()){
+            return new ResultInfo(false,null,"好友申请列表为空");
+        }
+        return new ResultInfo(true,confirmList,"好友申请类标以传送");
+    }
+
+
+
+
+    @RequestMapping(value = "/queryBySendId")
+    public ResultInfo queryBySendId(@RequestParam("send_id")String send_id){
+        User user = confirmService.queryBySendId(send_id);
+        if(user == null){
+            return new ResultInfo(false,null,"null");
+        }
+        return new ResultInfo(true,user,"victory");
+    }
+
+
+    //同意 or 拒绝
+    @RequestMapping(value = "/setstatus")
+    public ResultInfo setstatus(@RequestParam("send_id")String send_id,
+                                @RequestParam("flag")String flag,
+                                HttpSession session){
+
+
+        User user = (User) session.getAttribute("user");
+        String receive_id = user.getUserId()+"";
+
+        if("agree".equals(flag)){
+            int i = confirmService.setstatus_agree(send_id, receive_id);
+            if(i!=0){
+                return new ResultInfo(true,null,"你同意了他的申请");
+            } else {
+                return new ResultInfo(false,null,"服务器问题");
+            }
+        }
+
+        if("refuse".equals(flag)){
+            int i = confirmService.setstatus_refuse(send_id,receive_id);
+            if(i!=0){
+                return new ResultInfo(true,null,"你已成功拒绝了他的申请");
+            } else {
+                return new ResultInfo(false,null,"服务器问题");
+            }
+        }
+
+        return new ResultInfo(false,null,"服务器出现严重bug");
+    }
+
+
+}

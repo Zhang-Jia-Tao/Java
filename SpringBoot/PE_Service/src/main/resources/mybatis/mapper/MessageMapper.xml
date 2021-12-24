@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sdkj.boot.mapper.MessageMapper">
+
+    <select id="query" resultType="Integer">
+        select UserId from User where UserName = #{username} and Phone = #{phone}
+    </select>
+
+    <insert id="insert">
+        insert into Message (content,send_id,receive_id,send_time) values (#{content},#{send_id},#{receive_id},#{send_time})
+    </insert>
+
+    <select id="SelectMessage" resultType="Message">
+        select * from message where (send_id = #{send_id} or send_id = #{receive_id}) and (receive_id = #{send_id} or receive_id = #{receive_id}) order by mid
+    </select>
+
+
+</mapper>

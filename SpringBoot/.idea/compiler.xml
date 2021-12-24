@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile default="true" name="Default" enabled="true" />
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="CH01-SpringBoot" />
+        <module name="CH03-SpringBoot-Web" />
+        <module name="CH09-thymeleaf" />
+        <module name="CH06-springboot-jsp" />
+        <module name="CH10-DataBases" />
+        <module name="CH05-custom-configuration" />
+        <module name="004-springboot-mutli-environment" />
+        <module name="CH07-springboot-mybatis" />
+        <module name="CH08-springboot-mybatis-mapperscan" />
+        <module name="CH02-SpringBoot" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="004-springboot-mutli-environment" target="11" />
+      <module name="CH01-SpringBoot" target="1.8" />
+      <module name="CH02-SpringBoot" target="11" />
+      <module name="CH03-SpringBoot-Web" target="11" />
+      <module name="CH04-springboot-mutli-environment" target="11" />
+      <module name="CH05-custom-configuration" target="11" />
+      <module name="CH06-springboot-jsp" target="11" />
+      <module name="CH07-springboot-mybatis" target="11" />
+      <module name="CH08-springboot-mybatis-mapperscan" target="11" />
+      <module name="CH09-thymeleaf" target="11" />
+      <module name="CH10-DataBases" target="11" />
+      <module name="demo" target="11" />
+    </bytecodeTargetLevel>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="004-springboot-mutli-environment" options="-parameters" />
+      <module name="CH01-SpringBoot" options="-parameters" />
+      <module name="CH02-SpringBoot" options="-parameters" />
+      <module name="CH03-SpringBoot-Web" options="-parameters" />
+      <module name="CH04-springboot-mutli-environment" options="-parameters" />
+      <module name="CH05-custom-configuration" options="-parameters" />
+      <module name="CH06-springboot-jsp" options="-parameters" />
+      <module name="CH07-springboot-mybatis" options="-parameters" />
+      <module name="CH08-springboot-mybatis-mapperscan" options="-parameters" />
+      <module name="CH09-thymeleaf" options="-parameters" />
+      <module name="CH10-DataBases" options="-parameters" />
+      <module name="demo" options="-parameters" />
+    </option>
+  </component>
+</project>

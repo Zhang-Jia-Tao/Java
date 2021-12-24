@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/CH04-springboot-mutli-environment/004-springboot-mutli-environment.iml" filepath="$PROJECT_DIR$/CH04-springboot-mutli-environment/004-springboot-mutli-environment.iml" />
+      <module fileurl="file://$PROJECT_DIR$/CH01-SpringBoot/CH01-SpringBoot.iml" filepath="$PROJECT_DIR$/CH01-SpringBoot/CH01-SpringBoot.iml" />
+      <module fileurl="file://$PROJECT_DIR$/CH02-SpringBoot/CH02-SpringBoot.iml" filepath="$PROJECT_DIR$/CH02-SpringBoot/CH02-SpringBoot.iml" />
+      <module fileurl="file://$PROJECT_DIR$/CH03-SpringBoot-Web/CH03-SpringBoot-Web.iml" filepath="$PROJECT_DIR$/CH03-SpringBoot-Web/CH03-SpringBoot-Web.iml" />
+      <module fileurl="file://$PROJECT_DIR$/CH05-custom-configuration/CH05-custom-configuration.iml" filepath="$PROJECT_DIR$/CH05-custom-configuration/CH05-custom-configuration.iml" />
+      <module fileurl="file://$PROJECT_DIR$/CH06-springboot-jsp/CH06-springboot-jsp.iml" filepath="$PROJECT_DIR$/CH06-springboot-jsp/CH06-springboot-jsp.iml" />
+      <module fileurl="file://$PROJECT_DIR$/CH07-springboot-mybatis/CH07-springboot-mybatis.iml" filepath="$PROJECT_DIR$/CH07-springboot-mybatis/CH07-springboot-mybatis.iml" />
+      <module fileurl="file://$PROJECT_DIR$/CH08-springboot-mybatis-mapperscan/CH08-springboot-mybatis-mapperscan.iml" filepath="$PROJECT_DIR$/CH08-springboot-mybatis-mapperscan/CH08-springboot-mybatis-mapperscan.iml" />
+      <module fileurl="file://$PROJECT_DIR$/CH09-thymeleaf/CH09-thymeleaf.iml" filepath="$PROJECT_DIR$/CH09-thymeleaf/CH09-thymeleaf.iml" />
+      <module fileurl="file://$PROJECT_DIR$/CH10-DataBases/CH10-DataBases.iml" filepath="$PROJECT_DIR$/CH10-DataBases/CH10-DataBases.iml" />
+    </modules>
+  </component>
+</project>

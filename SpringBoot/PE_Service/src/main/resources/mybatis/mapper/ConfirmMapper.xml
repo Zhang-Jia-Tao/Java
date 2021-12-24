@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sdkj.boot.mapper.ConfirmMapper">
+    <insert id="AddConfirm">
+        insert into Confirm (Send_id,Receive_id) values (#{Send_id},#{Receive_id})
+    </insert>
+
+    <select id="QueryConfirm" resultType="Integer">
+        select count(*) from Confirm where Send_id = #{Send_id} and Receive_id = #{Receive_id}
+    </select>
+
+    <select id="compareuser" resultType="Confirm">
+        select * from Confirm where Receive_id = #{userid} and Status = 0;
+    </select>
+
+    <!--依据发送方的id，查询发送方的个人信息，给接收方-->
+    <select id="queryBySendId" resultType="User">
+        select * from User where UserId = #{send_id}
+    </select>
+
+    <!--修改status  1表示同意 2表示拒绝-->
+    <update id="setstatus_agree">
+        update Confirm set Status = 1 where Send_id = #{send_id} and Receive_id = #{receive_id};
+    </update>
+
+    <update id="setstatus_refuse">
+        update Confirm set Status = 2 where Send_id = #{send_id} and Receive_id = #{receive_id};
+    </update>
+
+</mapper>

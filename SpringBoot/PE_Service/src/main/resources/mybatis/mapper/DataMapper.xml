@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sdkj.boot.mapper.DataMapper">
+    <select id="QueryData" resultType="Data">
+        select * from Data where DataType = #{DataType}
+    </select>
+
+    <select id="SearchData" resultType="Data">
+        select * from Data;
+    </select>
+
+    <insert id="InsertData">
+        insert into Data (Datatype,DataAddress,VerCode,Content) values (#{type},#{address},#{password},#{content})
+    </insert>
+
+    <select id="SelectById" resultType="Data">
+        select * from Data where DataId = #{id}
+    </select>
+
+
+    <!--根据ID，进行更新-->
+    <update id="UpdateById">
+        update Data set Datatype=#{type},DataAddress=#{address},VerCode=#{password},Content=#{content} where DataId=#{id}
+    </update>
+
+
+    <!--根据id，进行删除-->
+    <delete id="DeleteById">
+        delete from Data where DataId = #{id}
+    </delete>
+
+</mapper>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sdkj.boot.mapper.FriendMapper">
+    <select id="QueryFriend" resultType="Friend">
+        select * from Friend where UserId_F = #{UserId}
+    </select>
+
+    <insert id="UpdateFriend">
+        insert into Friend (UserId_F,FriendName,FriendPhone) values (#{UserId},#{FriendName},#{FriendPhone})
+    </insert>
+
+</mapper>

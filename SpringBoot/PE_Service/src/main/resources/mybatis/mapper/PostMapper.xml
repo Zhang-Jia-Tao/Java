@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sdkj.boot.mapper.PostMapper">
+    <select id="QueryPost" resultType="Post">
+        select * from post where type = #{type}
+    </select>
+
+    <insert id="InsertPost">
+        insert into Post (User_Id,Content,NumberOfLikes,NumberOfConnection,type,UserName) values (#{User_Id},#{Content},#{NumberOfLikes},#{NumberOfConnection},#{type},#{UserName})
+    </insert>
+
+
+    <!--以下两个一起连用-->
+    <update id="UpdateLike">
+        update Post set NumberOfLikes = NumberOfLikes+1 where PostId=#{PostId}
+    </update>
+
+    <select id="QueryPostLike" resultType="java.lang.Integer">
+        select NumberOfLikes from Post where PostId = #{PostId}
+    </select>
+
+    <!--查询所有的帖子-->
+    <select id="SearchPost" resultType="Post">
+        select * from Post
+    </select>
+
+    <!--查询帖子内容-->
+    <select id="QueryContent" resultType="String">
+        select Content from Post where PostId = #{id}
+    </select>
+
+    <!--根据帖子的id，进行删除帖子的操作-->
+    <delete id="DeleteById">
+        delete from Post where PostId = #{id}
+    </delete>
+
+
+    <!--
+    mysql> update User set Status = 0 where UserId = (select User_Id from Post where PostId = 1);
+    -->
+
+    <!--封号处理,利用单列子查询-->
+    <update id="UpdateById">
+        update User set Status = 0 where UserId = (select User_Id from Post where PostId = #{id})
+    </update>
+
+
+    <!--依据PostID 查询出UserId，然后根据UserID 查询出完整的用户信息-->
+    <select id="QueryUser" resultType="User">
+        select * from User where UserId = (select User_Id from Post where PostId = #{id})
+    </select>
+
+
+    <!--依据当前登陆的用户，查询当前用户的帖子-->
+    <select id="SelectById" resultType="Post">
+        select * from Post where User_Id = #{id}
+    </select>
+
+</mapper>
