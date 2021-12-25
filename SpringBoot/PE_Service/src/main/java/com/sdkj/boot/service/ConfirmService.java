@@ -49,6 +49,20 @@ public class ConfirmService {
         return res;
     }
 
+    public List<User> selectByRecId(String id){
+        List<User> users = confirmMapper.selectByRecId(id);
+        return  users;
+    }
+
+    public int agree(String receive_id,String username,String phone){
+        int res = confirmMapper.agree(receive_id, username, phone);
+        return res;
+    }
+
+    public int refuse(String receive_id,String username,String phone){
+        int res = confirmMapper.refuse(receive_id,username,phone);
+        return res;
+    }
 
 
 }

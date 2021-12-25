@@ -49,7 +49,7 @@ public class ConfirmController {
 
 
     //返回的数据是用户作为接受申请的人
-    @RequestMapping(value = "compare")
+    @RequestMapping(value = "/compare")
     public ResultInfo compareuser(HttpSession session){
         User user = (User) session.getAttribute("user");
         String userid = user.getUserId()+"";
@@ -104,5 +104,49 @@ public class ConfirmController {
         return new ResultInfo(false,null,"服务器出现严重bug");
     }
 
+    @RequestMapping("/queue")
+    public ResultInfo selectByRecId(HttpSession session){
+        User user = (User) session.getAttribute("user");
+        String id = user.getUserId()+"";
+        if(id == ""){
+            System.out.println("big bug");
+            return new ResultInfo(false,null,"big bug");
+        }
+
+        List<User> users = confirmService.selectByRecId(id);
+        if(users.isEmpty()){
+            return new ResultInfo(false,null,"暂无申请信息");
+        } else {
+            return new ResultInfo(true,users,"runnable");
+        }
+    }
+
+    @RequestMapping("/agree")
+    public ResultInfo agree(@RequestParam("requestname") String username,
+                            @RequestParam("requestphone") String phone,
+                            HttpSession session){
+        User user = (User)session.getAttribute("user");
+        String receive_id = user.getUserId()+"";
+        int agree = confirmService.agree(receive_id, username, phone);
+        if(agree != 0){
+            return new ResultInfo(true,null,"已同意，请稍后退出程序查看好友列表");
+        } else {
+            return new ResultInfo(false,null,"服务器bug");
+        }
+    }
+
+    @RequestMapping("/refuse")
+    public ResultInfo refuse(@RequestParam("requestname")String username,
+                             @RequestParam("requestphone")String phone,
+                             HttpSession session){
+        User user = (User)session.getAttribute("user");
+        String receive_id = user.getUserId()+"";
+        int agree = confirmService.refuse(receive_id, username, phone);
+        if(agree != 0){
+            return new ResultInfo(true,null,"已拒绝，请稍后退出程序查看好友列表");
+        } else {
+            return new ResultInfo(false,null,"服务器bug");
+        }
+    }
 
 }

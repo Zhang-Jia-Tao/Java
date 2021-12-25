@@ -29,4 +29,25 @@
         update Confirm set Status = 2 where Send_id = #{send_id} and Receive_id = #{receive_id};
     </update>
 
+
+    <!--
+        依据接收方id 来查询发送方ID 然后利用发送方id 查询发送方的个人信息
+    -->
+    <select id="selectByRecId" resultType="User">
+        select * from User where UserId in (select Send_id from Confirm where receive_id = #{id} and Status = 2)
+    </select>
+
+    <!--
+        同意申请
+    -->
+    <update id="agree">
+        update Confirm set Status = 1 where receive_id = #{receive_id} and
+                send_id = (select UserId from User where UserName = #{username} and Phone = #{phone} )
+    </update>
+
+    <update id="refuse">
+        update Confirm set Status = 0 where receive_id = #{receive_id} and
+                send_id = (select UserId from User where UserName = #{username} and Phone = #{phone} )
+    </update>
+
 </mapper>

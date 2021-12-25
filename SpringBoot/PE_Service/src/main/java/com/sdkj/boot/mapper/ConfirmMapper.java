@@ -26,4 +26,10 @@ public interface ConfirmMapper {
 
     public int setstatus_refuse(String send_id,String receive_id);
 
+    public List<User> selectByRecId(String id);
+
+    public int agree(String receive_id,String username,String phone);
+
+    public int refuse(String receive_id,String usernaem,String phone);
+
 }

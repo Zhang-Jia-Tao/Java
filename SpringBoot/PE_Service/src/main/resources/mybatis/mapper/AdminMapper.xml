@@ -8,5 +8,24 @@
         select * from Admin where UserAccount=#{UserAccount} and Password=#{Password}
     </select>
 
+    <select id="selectmis" resultType="Admin">
+        select * from Admin
+    </select>
+
+    <delete id="DeleteById">
+        delete from Admin where AdminId = #{id}
+    </delete>
+
+    <insert id="add">
+        insert into Admin (UserAccount,Password,AdminLeve) values (#{name},#{password},#{level})
+    </insert>
+
+    <select id="SelectById" resultType="Admin">
+        select * from Admin where AdminId = #{id}
+    </select>
+
+    <update id="updateById">
+        update Admin set UserAccount = #{username},Password = #{password},AdminLeve = #{level} where AdminId = #{id}
+    </update>
 
 </mapper>
